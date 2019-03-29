@@ -1,0 +1,26 @@
+.all-graphs-container {
+    width: 100%;
+    min-height: 10vh;
+    color: #EFF2F4;
+    background-color: #2E3133;
+
+    .all-graphs-title {
+        font-weight: 800;
+        font-style: italic;
+        font-size: 1.5em;
+        margin: 5vh 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .small-graph-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .small-graph-content {
+            width: 350px;
+        }
+    }
+}

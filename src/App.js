@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './scss/App.scss';
 import ExpressionGraph2 from './components/ExpressionGraph2';
+import { Provider } from "mobx-react";
+import DataStore from './stores/DataStore';
+import LandingPage from './components/LandingPage';
 
 class App extends Component {
 
@@ -16,32 +19,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app-container">
-        <ExpressionGraph2 data={this.state.data} previousData={this.state.previousData}></ExpressionGraph2>
-        <button onClick={this.changeData}>Random data</button>
-        <button onClick={this.addData}>Add data</button>
-        <button onClick={this.removeData}>Remove data</button>
-      </div>
+      <Provider DataStore={DataStore}>
+        <div className="app-container">
+          <LandingPage></LandingPage>
+        </div>
+      </Provider>
     );
-  }
-
-  changeData = () => {
-    const newData = JSON.parse(JSON.stringify(this.state.data));
-    newData.map(year => year.womenRate = Math.round(Math.random() * 100));
-    this.setState({data: newData});
-  }
-
-  addData = () => {
-    const newData = JSON.parse(JSON.stringify(this.state.data));
-    newData.push({year: '200' + newData.length, womenRate: Math.round(Math.random() * 100)});
-    // newData.push({year: '200' + (newData.length + 1), womenRate: Math.round(Math.random() * 100)});
-    this.setState({data: newData});
-  }
-
-  removeData = () => {
-    const newData = JSON.parse(JSON.stringify(this.state.data));
-    newData.pop();
-    this.setState({data: newData});
   }
 }
 

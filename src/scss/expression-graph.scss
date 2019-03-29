@@ -1,3 +1,106 @@
 .expression-graph-container {
     // background-color: pink;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .graph-title {
+        margin-left: 10vw;
+    }
+
+    .graph-title-small {
+        color: #EFF2F4 !important;
+        font-size: 1.5em !important;
+    }
+
+    .tooltip {	
+        position: absolute;
+        min-width: 190px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 3px;
+        // border: 1px solid #2E3133;
+        pointer-events: none;
+        color: #2E3133;
+
+        .tooltip-title {
+            display: flex;
+            padding: 10px 15px;
+            width: 100%;
+            justify-content: space-between;
+            font-weight: bolder;
+            border-bottom: 1px solid rgb(196, 195, 195);
+        }
+
+        .tooltip-content {
+            padding: 5px 15px;
+            font-size: 0.8em;
+            
+            .public, .private {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 3px 0;
+
+                .circle {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 100%;
+                }
+            }
+
+            .public {
+                .circle {
+                    background-color: #FE4A49;
+                }
+            }
+
+            .private {
+                .circle {
+                    background-color: #FED766;
+                }
+            }
+        }
+    }
+
+    .graph-content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15vh;
+
+        .d3-graph {
+            .median-circle-1 {
+                stroke: white;
+                stroke-width: 0.2px;
+                // fill: #9CC5A1;
+                fill: #FE4A49;
+                fill-opacity: 1;
+            }
+        
+            .median-circle-2 {
+                stroke: white;
+                stroke-width: 0.2px;
+                // fill: #9CC5A1;
+                fill: #FED766;
+                fill-opacity: 1;
+            }
+
+            .title-1 {
+                fill: #AFB7BF;
+                font-style: italic;
+                font-size: 2.5px;
+            }
+
+            .title-2 {
+                fill: #8C9399;
+                font-style: italic;
+                font-size: 2.5px;
+            }
+
+            .text-group {
+                pointer-events: none;
+            }
+        }
+    }
 }
