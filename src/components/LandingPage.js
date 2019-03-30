@@ -7,6 +7,18 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Header from './Header';
 import AllGraphs from './AllGraphs';
 import Footer from './Footer';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = {
+    root: {
+      color: '#EFF2F4',
+      padding: '3px',
+      '&$checked':{
+        color: '#ffffff',
+      }
+    },
+    checked:{}
+};
 
 @inject("DataStore")
 @observer
@@ -47,6 +59,9 @@ class LandingPage extends Component {
                                 <div className="channel-checkbox-left">
                                 <div className="channel-checkbox channel-checkbox-meta">
                                     <Checkbox
+                                        classes={{
+                                        root:this.props.classes.root,
+                                        checked:this.props.classes.checked}}
                                         checked={allRadioChannelsSelected}
                                         onChange={handleCheckRadioChange.bind(this, 'all')}
                                         icon={<CheckBoxOutlineBlankIcon style={{ fontSize: 18 }} />}
@@ -56,6 +71,9 @@ class LandingPage extends Component {
                                 </div>
                                 {avaliableRadioChannels.map((channel, i) => i % 2 ? null : (<div className="channel-checkbox" key={channel.name}>
                                     <Checkbox
+                                        classes={{
+                                            root:this.props.classes.root,
+                                            checked:this.props.classes.checked}}
                                         checked={channel.checked}
                                         onChange={handleCheckRadioChange.bind(this, channel.name)}
                                         icon={<CheckBoxOutlineBlankIcon style={{ fontSize: 18 }} />}
@@ -67,6 +85,9 @@ class LandingPage extends Component {
                                 <div className="channel-checkbox-right">
                                 <div className="channel-checkbox channel-checkbox-meta">
                                     <Checkbox
+                                        classes={{
+                                        root:this.props.classes.root,
+                                        checked:this.props.classes.checked}}
                                         checked={noRadioChannelsSelected}
                                         onChange={handleCheckRadioChange.bind(this, 'none')}
                                         icon={<CheckBoxOutlineBlankIcon style={{ fontSize: 18 }} />}
@@ -76,6 +97,9 @@ class LandingPage extends Component {
                                 </div>
                                 {avaliableRadioChannels.map((channel, i) => i % 2 ? (<div className="channel-checkbox" key={channel.name}>
                                     <Checkbox
+                                        classes={{
+                                        root:this.props.classes.root,
+                                        checked:this.props.classes.checked}}
                                         checked={channel.checked}
                                         onChange={handleCheckRadioChange.bind(this, channel.name)}
                                         icon={<CheckBoxOutlineBlankIcon style={{ fontSize: 18 }} />}
@@ -94,6 +118,9 @@ class LandingPage extends Component {
                                 <div className="channel-checkbox-left">
                                 <div className="channel-checkbox channel-checkbox-meta">
                                     <Checkbox
+                                        classes={{
+                                        root:this.props.classes.root,
+                                        checked:this.props.classes.checked}}
                                         checked={allTvChannelsSelected}
                                         onChange={handleCheckTvChange.bind(this, 'all')}
                                         icon={<CheckBoxOutlineBlankIcon style={{ fontSize: 18 }} />}
@@ -103,6 +130,9 @@ class LandingPage extends Component {
                                 </div>
                                 {avaliableTvChannels.map((channel, i) => i % 2 ? null : (<div className="channel-checkbox" key={channel.name}>
                                     <Checkbox
+                                        classes={{
+                                        root:this.props.classes.root,
+                                        checked:this.props.classes.checked}}
                                         checked={channel.checked}
                                         onChange={handleCheckTvChange.bind(this, channel.name)}
                                         icon={<CheckBoxOutlineBlankIcon style={{ fontSize: 18 }} />}
@@ -114,6 +144,9 @@ class LandingPage extends Component {
                                 <div className="channel-checkbox-right">
                                 <div className="channel-checkbox channel-checkbox-meta">
                                     <Checkbox
+                                        classes={{
+                                        root:this.props.classes.root,
+                                        checked:this.props.classes.checked}}
                                         checked={noTvChannelsSelected}
                                         onChange={handleCheckTvChange.bind(this, 'none')}
                                         icon={<CheckBoxOutlineBlankIcon style={{ fontSize: 18 }} />}
@@ -123,6 +156,9 @@ class LandingPage extends Component {
                                 </div>
                                 {avaliableTvChannels.map((channel, i) => i % 2 ? (<div className="channel-checkbox" key={channel.name}>
                                     <Checkbox
+                                        classes={{
+                                        root:this.props.classes.root,
+                                        checked:this.props.classes.checked}}
                                         checked={channel.checked}
                                         onChange={handleCheckTvChange.bind(this, channel.name)}
                                         icon={<CheckBoxOutlineBlankIcon style={{ fontSize: 18 }} />}
@@ -144,4 +180,4 @@ class LandingPage extends Component {
     }
 }
 
-export default LandingPage;
+export default withStyles(styles)(LandingPage);

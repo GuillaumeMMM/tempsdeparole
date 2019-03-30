@@ -100,7 +100,7 @@ class SmallExpressionGraph extends Component {
             .attr('y', (d, i) => - this.relativeWidth(45) + (this.props.data.length - i - 1) * this.relativeWidth(45) / this.props.data.length + this.relativeWidth(2))
             .attr('text-anchor', 'middle')
             .attr('alignment-baseline', 'middle')
-            .style('font-size', 2)
+            .style('font-size', '2px')
             .attr('fill', 'white')
             .text(d => d.year);
 
@@ -110,7 +110,7 @@ class SmallExpressionGraph extends Component {
             .attr('y', (d, i) => this.relativeWidth(45) - (this.props.data.length - i - 1) * this.relativeWidth(45) / this.props.data.length - this.relativeWidth(2))
             .attr('text-anchor', 'middle')
             .attr('alignment-baseline', 'middle')
-            .style('font-size', 2)
+            .style('font-size', '2px')
             .attr('fill', 'white')
             .text(d => d.year);
 
